@@ -1,15 +1,12 @@
 import pygame
 import math
 
-# Inicializar o pygame
 pygame.init()
 
-# Dimensões da janela
 WIDTH, HEIGHT = 1000, 1000
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Simulação de Rotação nos Eixos X, Y e Z (3D)")
 
-# Cores
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 
@@ -76,7 +73,7 @@ def project(points):
     d = 500  # Distância do plano de projeção
     projected = []
     for x, y, z in points:
-        z += 200  # Deslocar para frente para evitar z negativo e 
+        z += 200  # Deslocar para frente para evitar z negativo
         x, y = (x/z)*d, (y/z) * d
         projected.append([x, y])
     return projected
@@ -98,11 +95,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
-    # Caso pressione as teclas w e s, modificar o angulo x,
-    # caso pressione a e d, modificar o angulo y e
-    # caso pressione q e e, modificar o angulo z
-
+            
     # keys = pygame.key.get_pressed()
     # if keys[pygame.K_w]:
     #     angle_x -= 0.01
